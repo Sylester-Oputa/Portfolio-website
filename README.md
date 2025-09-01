@@ -17,13 +17,6 @@ A modern, responsive portfolio website built with React and Tailwind CSS, featur
 - **📧 Contact Form**: Integrated contact section with toast notifications
 - **🔧 Component-Based**: Modular React components for easy maintenance
 
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js (version 16 or higher)
-- npm or yarn package manager
-
 ### Installation
 
 1. **Clone the repository**
@@ -133,25 +126,11 @@ Custom toast notifications for user feedback and form submissions.
 ### Responsive Navigation
 Mobile-first navigation with smooth animations and accessibility features.
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ## 👨‍💻 Author
 
 **Sylester Oputa**
 - GitHub: [@Sylester-Oputa](https://github.com/Sylester-Oputa)
-- Portfolio: [Your Website URL]
+- Portfolio: [My-Portfolio](https://portfolio-website-orcin-phi.vercel.app/)
 
 ## 🙏 Acknowledgments
 
@@ -159,7 +138,3 @@ This project is open source and available under the [MIT License](LICENSE).
 - Tailwind CSS for the utility-first CSS framework
 - React community for excellent documentation and resources
 - Vite team for the amazing build tool
-
----
-
-⭐ Star this repository if you found it helpful!

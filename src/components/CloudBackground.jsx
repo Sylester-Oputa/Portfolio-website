@@ -15,24 +15,26 @@ export const CloudBackground = () => {
   }, []);
 
   const generateClouds = () => {
-    const numberOfClouds = 6;
+    const numberOfClouds = 8;
     const newClouds = [];
 
     for (let i = 0; i < numberOfClouds; i++) {
+      const cloudTypes = ['cloud-small', 'cloud-medium', 'cloud-large'];
+      const cloudType = cloudTypes[Math.floor(Math.random() * cloudTypes.length)];
+      
       newClouds.push({
         id: i,
-        width: Math.random() * 120 + 60,   // 60-180px width (smaller)
-        height: Math.random() * 50 + 25,   // 25-75px height (smaller)
-        x: Math.random() * 110 - 10,       // Start slightly off-screen left (-10% to 100%)
-        y: Math.random() * 40 + 15,        // 15% to 55% from top (higher in sky)
-        opacity: Math.random() * 0.5 + 0.3, // 0.3 to 0.8 opacity
-        animationDuration: Math.random() * 25 + 35, // 35-60 seconds (faster)
-        delay: Math.random() * 10, // 0-10 second delay
+        type: cloudType,
+        x: Math.random() * 120 - 20,       // Start off-screen left (-20% to 100%)
+        y: Math.random() * 50 + 10,        // 10% to 60% from top
+        opacity: Math.random() * 0.4 + 0.4, // 0.4 to 0.8 opacity
+        animationDuration: Math.random() * 40 + 60, // 60-100 seconds (slower drift)
+        delay: Math.random() * 15, // 0-15 second delay
+        floatDelay: Math.random() * 8, // Random float animation delay
       });
     }
 
     setClouds(newClouds);
-    console.log("CloudBackground: Generated clouds:", newClouds);
   };
 
   return (
@@ -50,15 +52,13 @@ export const CloudBackground = () => {
       {clouds.map((cloud) => (
         <div
           key={cloud.id}
-          className="cloud-shape"
+          className={`cloud ${cloud.type}`}
           style={{
-            width: cloud.width + "px",
-            height: cloud.height + "px",
             left: cloud.x + "%",
             top: cloud.y + "%",
             opacity: cloud.opacity,
-            animation: `cloudDrift ${cloud.animationDuration}s linear infinite`,
-            animationDelay: cloud.delay + "s",
+            animationDuration: `${cloud.animationDuration}s, 8s`,
+            animationDelay: `${cloud.delay}s, ${cloud.floatDelay}s`,
           }}
         />
       ))}
