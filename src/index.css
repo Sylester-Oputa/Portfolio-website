@@ -86,7 +86,7 @@
   @keyframes cloudFloat {
     0%,
     100% {
-      transform: translateY(0px);
+      transform: translateY(10px);
     }
     50% {
       transform: translateY(-15px);
@@ -218,7 +218,7 @@
 /* Realistic Cloud Shapes */
 .cloud {
   position: absolute;
-  animation: var(--animate-cloud-drift) ease-in-out infinite;
+  /* animation disabled to prevent drift with scroll */
 }
 
 .cloud::before,
@@ -244,8 +244,7 @@
 .cloud-small {
   width: 100px;
   height: 40px;
-  animation: var(--animate-cloud-drift) ease-in-out infinite,
-    var(--animate-cloud-float) ease-in-out infinite;
+  /* animation disabled to keep clouds static */
 }
 
 .cloud-small::before {
@@ -273,9 +272,7 @@
 .cloud-medium {
   width: 140px;
   height: 60px;
-  animation: var(--animate-cloud-drift) ease-in-out infinite,
-    var(--animate-cloud-float) ease-in-out infinite;
-  animation-delay: 0s, 2s;
+  /* animation disabled to keep clouds static */
 }
 
 .cloud-medium::before {
@@ -304,9 +301,7 @@
 .cloud-large {
   width: 200px;
   height: 80px;
-  animation: var(--animate-cloud-drift) ease-in-out infinite,
-    var(--animate-cloud-float) ease-in-out infinite;
-  animation-delay: 0s, 4s;
+  /* animation disabled to keep clouds static */
 }
 
 .cloud-large::before {

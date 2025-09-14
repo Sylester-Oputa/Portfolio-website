@@ -43,7 +43,7 @@ export const CloudBackground = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-sky-100/40 via-background to-background" />
       
       {/* Glowing Sun - positioned safely within viewport */}
-      <div className="sun absolute top-12 right-12 sm:top-16 sm:right-16">
+      <div className="sun absolute top-25 right-12 sm:top-20 sm:right-16">
         <div className="sun-core"></div>
         <div className="sun-glow"></div>
       </div>
@@ -57,8 +57,6 @@ export const CloudBackground = () => {
             left: cloud.x + "%",
             top: cloud.y + "%",
             opacity: cloud.opacity,
-            animationDuration: `${cloud.animationDuration}s, 8s`,
-            animationDelay: `${cloud.delay}s, ${cloud.floatDelay}s`,
           }}
         />
       ))}

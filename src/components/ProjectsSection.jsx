@@ -7,14 +7,8 @@ const projects = [
     description:
       "A modern, full-stack web application that helps users seamlessly track their income and expenses.",
     image: "/projects/project1.png",
-    tags: [
-      "React",
-      "TailwindCSS",
-      "Node.js",
-      "Express",
-      "MongoDB",
-    ],
-    demoUrl: "https://finance-tracker-nine-jade.vercel.app/",
+    tags: ["React", "TailwindCSS", "Node.js", "Express", "MongoDB"],
+    demoUrl: "https://finance-tracker-blue-nine.vercel.app",
     githubUrl: "https://github.com/Sylester-Oputa/finance-tracker.git",
   },
   {
@@ -23,12 +17,7 @@ const projects = [
     description:
       "A modern real estate web platform featuring real-time property updates and a responsive user interface.",
     image: "/projects/project2.png",
-    tags: [
-      "React",
-      "TailwindCSS",
-      "Redux Toolkit",
-      "Ruby on Rails",
-    ],
+    tags: ["React", "TailwindCSS", "Redux Toolkit", "Ruby on Rails"],
     demoUrl: "https://upwey.com.ng/",
     githubUrl: "https://github.com/JimOluwaseyi/upwey-frontend.git",
   },

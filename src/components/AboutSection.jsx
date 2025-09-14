@@ -15,15 +15,16 @@ export const AboutSection = () => {
     <section id="about" className="py-24 px-4 relative">
       {" "}
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          About <span className="text-primary"> Me</span>
+        <h2 className="text-3xl md:text-4xl font-extrabold mb-12 text-center">
+          <span className="text-primary">About</span>{" "}
+          <span className="text-foreground">| Me</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">Passionate Web Developer</h3>
 
-            <p className="text-muted-foreground">
+            <p className="text-foreground/80">
               With over 4 years of proven experience in frontend development and
               hands-on expertise in backend engineering, I specialize in
               building responsive, accessible, and performance-driven web
@@ -33,7 +34,7 @@ export const AboutSection = () => {
               for real-world use cases.
             </p>
 
-            <p className="text-muted-foreground">
+            <p className="text-foreground/80">
               I’m passionate about designing and developing scalable digital
               products that seamlessly blend clean, user-focused design with
               robust backend functionality. Having worked with a wide range of
@@ -45,30 +46,20 @@ export const AboutSection = () => {
               project I contribute to.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center">
               <a href="#contact" className="cosmic-button">
                 {" "}
                 Get In Touch
               </a>
 
-              <div className="flex w-full justify-center items-center gap-4">
-                <a
-                  href="../../public/CVs/Oputa Sylvester Obiwuru CV.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-2 w-full rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
-                >
-                  Download Frontend CV
-                </a>
-                <a
-                  href="../../public/CVs/Oputa Sylvester Obiwuru Backend CV.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-2 w-full rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
-                >
-                  Download Backend CV
-                </a>
-              </div>
+              <a
+                href="../../public/CVs/Oputa Sylvester Obiwuru Fullstack CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cosmic-button"
+              >
+                Download CV
+              </a>
             </div>
           </div>
 
@@ -161,7 +152,7 @@ export const AboutSection = () => {
 
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">Solutions Engineer / Startup Tech Lead</h4>
-                  <p className="text-muted-foreground">
+                  <p className="text-foreground/80">
                     Turning ideas into functional products with speed and precision.
                   </p>
                 </div>

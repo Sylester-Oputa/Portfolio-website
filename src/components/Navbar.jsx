@@ -17,7 +17,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.screenY > 10);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -49,8 +49,8 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+        "fixed w-full z-40 transition-all duration-300 border-b bg-background",
+        isScrolled ? "py-3 border-b border-border shadow-sm" : "py-5"
       )}
     >
       <div className="container flex items-center justify-between">
@@ -89,7 +89,7 @@ export const Navbar = () => {
 
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center",
+            "fixed inset-0 bg-background z-40 flex flex-col items-center justify-center",
             "transition-all duration-300 lg:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
@@ -123,7 +123,7 @@ export const Navbar = () => {
           </div>
 
           {/* Theme toggle at bottom */}
-          <div className="absolute bottom-8">
+          <div className="absolute justify-center items-center bottom-8">
             <button
               onClick={toggleTheme}
               className="p-3 rounded-full transition-colors duration-300 bg-card shadow-lg"
