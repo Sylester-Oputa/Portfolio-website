@@ -62,10 +62,10 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium"> Phone</h4>
                   <a
-                    href="tel:+11234567890"
+                    href="tel:+2349034901283"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +234 (802) 998-4701
+                    +234 (903) 490-1283
                   </a>
                 </div>
               </div>
@@ -76,7 +76,7 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium"> Location</h4>
                   <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Badagry, Lagos, Nigeria.
+                    Lagos, Lagos State, Nigeria.
                   </a>
                 </div>
               </div>
@@ -97,7 +97,7 @@ export const ContactSection = () => {
                 >
                   <Instagram />
                 </a>
-                <a href="https://wa.me/08029984701" target="_blank">
+                <a href="https://wa.me/2349034901283" target="_blank">
                   <FaWhatsapp size={25} />
                 </a>
               </div>
@@ -143,7 +143,7 @@ export const ContactSection = () => {
                   name="email"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="luka@gmail.com"
+                  placeholder="sylvesteroputa366@gmail.com"
                 />
               </div>
 

@@ -5,6 +5,7 @@ import {
   Database,
   FileText,
   Lightbulb,
+  Monitor,
   Server,
   User,
   Workflow,
@@ -64,6 +65,21 @@ export const AboutSection = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-6">
+            <div className="gradient-border p-6 card-hover">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-full bg-primary/10">
+                  <Monitor className="h-6 w-6 text-primary" />
+                </div>
+                <div className="text-left">
+                  <h4 className="font-semibold text-lg">
+                    Frontend Developer / UI Engineer
+                  </h4>
+                  <p className="text-muted-foreground">
+                    Creating responsive, accessible, and visually stunning user interfaces.
+                  </p>
+                </div>
+              </div>
+            </div>
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
