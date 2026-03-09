@@ -315,7 +315,7 @@ export const ProjectsSection = () => {
                   letterSpacing: "0.12em",
                 }}
               >
-                Coming Soon
+                Still empty. Still waiting. Still your chance.
               </span>
             </div>
           ))}

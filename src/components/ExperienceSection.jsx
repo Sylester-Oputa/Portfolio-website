@@ -275,7 +275,7 @@ export const ExperienceSection = () => {
                   className="font-mono italic"
                   style={{ color: "var(--c-secondary)", fontSize: "0.9rem" }}
                 >
-                  More roles coming...
+                  More experience loading... please hire me to speed up the process.
                 </p>
               </div>
             </motion.div>
