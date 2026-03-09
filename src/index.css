@@ -34,25 +34,25 @@
 @layer base {
   /* Default dark palette (prevents flash before JS hydration) */
   :root {
-    --c-bg: #1A1714;
+    --c-bg: #1a1714;
     --c-surface: #242019;
-    --c-border: #3A3530;
-    --c-accent: #6DBFA0;
-    --c-accent-rgb: 109,191,160;
-    --c-secondary: #C4956A;
-    --c-text: #DAD0C4;
-    --c-muted: #8A7E72;
-    --c-contact-bg: #1E1B17;
+    --c-border: #3a3530;
+    --c-accent: #6dbfa0;
+    --c-accent-rgb: 109, 191, 160;
+    --c-secondary: #c4956a;
+    --c-text: #dad0c4;
+    --c-muted: #8a7e72;
+    --c-contact-bg: #1e1b17;
     --c-tag-bg: #242019;
-    --c-tag-bg-inner: #1A1714;
-    --c-overlay: rgba(10,8,6,0.6);
-    --c-inset: rgba(255,255,255,0.04);
-    --c-selection-bg: rgba(109,191,160,0.2);
-    --c-cursor-primary: #6DBFA0;
-    --c-cursor-secondary: #C4956A;
-    --c-scrollbar-track: #1A1714;
-    --c-scrollbar-thumb: #3A3530;
-    --c-scrollbar-hover: #8A7E72;
+    --c-tag-bg-inner: #1a1714;
+    --c-overlay: rgba(10, 8, 6, 0.6);
+    --c-inset: rgba(255, 255, 255, 0.04);
+    --c-selection-bg: rgba(109, 191, 160, 0.2);
+    --c-cursor-primary: #6dbfa0;
+    --c-cursor-secondary: #c4956a;
+    --c-scrollbar-track: #1a1714;
+    --c-scrollbar-thumb: #3a3530;
+    --c-scrollbar-hover: #8a7e72;
   }
 
   * {
