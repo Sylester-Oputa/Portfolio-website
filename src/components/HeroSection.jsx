@@ -1,47 +1,228 @@
-import { ArrowDown } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
+
+const roles = [
+  "Full Stack Developer",
+  "Backend Engineer",
+  "API Architect",
+  "SaaS Builder",
+];
 
 export const HeroSection = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const timeoutRef = useRef(null);
+
+  // Typewriter effect
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+
+    if (!isDeleting) {
+      if (displayedText.length < currentRole.length) {
+        timeoutRef.current = setTimeout(() => {
+          setDisplayedText(currentRole.slice(0, displayedText.length + 1));
+        }, 80);
+      } else {
+        timeoutRef.current = setTimeout(() => setIsDeleting(true), 2000);
+      }
+    } else {
+      if (displayedText.length > 0) {
+        timeoutRef.current = setTimeout(() => {
+          setDisplayedText(displayedText.slice(0, -1));
+        }, 40);
+      } else {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+      }
+    }
+
+    return () => clearTimeout(timeoutRef.current);
+  }, [displayedText, isDeleting, roleIndex]);
+
+  const nameWords = ["SYLVESTER", "OBIWURU", "OPUTA"];
+
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.15, delayChildren: 2.2 } },
+  };
+
+  const wordVariants = {
+    hidden: { y: "100%", opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
-      <div className="container max-w-4xl mx-auto text-center z-10">
-        <div className="space-y-6">
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
-            <span className="opacity-0 animate-fade-in"> Hi, I'm</span>
-            <span className="text-primary opacity-0 animate-fade-in-delay-1">
-              {" "}
-              Sylvester
-            </span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
-              {" "}
-              Oputa
-            </span>
-          </h1>
+      {/* Diagonal graph paper background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(45deg, var(--c-border) 1px, transparent 1px),
+            linear-gradient(-45deg, var(--c-border) 1px, transparent 1px)
+          `,
+          backgroundSize: "40px 40px",
+          opacity: 0.03,
+        }}
+      />
 
-          <p className="text-lg md:text-2xl text-foreground/80 max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            I craft modern, scalable web experiences—blending clean design with
-            powerful full-stack development.
-          </p>
-
-          <div className="pt-6 flex items-center justify-center gap-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
-              View My Work
-            </a>
-            <a
-              href="#contact"
-              className="px-6 py-2 rounded-full border border-primary/60 text-foreground hover:bg-primary/10 transition-colors duration-300"
-            >
-              Contact Me
-            </a>
-          </div>
+      <div className="container relative z-10 pt-24 pb-16">
+        {/* Top bar */}
+        <div className="flex items-center justify-between mb-16">
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.4, duration: 0.5 }}
+            className="font-display"
+            style={{ color: "var(--c-muted)", fontSize: 15 }}
+          >
+            SOO
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.4, duration: 0.5 }}
+            className="font-mono uppercase"
+            style={{
+              color: "var(--c-accent)",
+              fontSize: 11,
+              letterSpacing: "0.12em",
+            }}
+          >
+            ● AVAILABLE — REMOTE & CONTRACT
+          </motion.span>
         </div>
-      </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-        <span className="text-sm text-muted-foreground mb-2"> Scroll </span>
-        <ArrowDown className="h-5 w-5 text-primary" />
+        {/* Name */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="mb-6"
+        >
+          {nameWords.map((word) => (
+            <div key={word} className="overflow-hidden">
+              <motion.h1
+                variants={wordVariants}
+                className="font-display font-bold leading-[0.95]"
+                style={{
+                  color: "var(--c-text)",
+                  fontSize: "clamp(3rem, 10vw, 10rem)",
+                }}
+              >
+                {word}
+              </motion.h1>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Typewriter role */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.8, duration: 0.4 }}
+          className="font-mono mb-4"
+          style={{ color: "var(--c-secondary)", fontSize: "1rem" }}
+        >
+          {displayedText}
+          <span className="animate-pulse">·</span>
+        </motion.div>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3, duration: 0.4 }}
+          className="font-body italic mb-10 max-w-lg"
+          style={{ color: "var(--c-muted)", fontSize: "1.15rem" }}
+        >
+          Scalable systems. Clean APIs. Interfaces that ship.
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 3.2, duration: 0.4 }}
+          className="flex flex-wrap gap-4 mb-16"
+        >
+          <a
+            href="#projects"
+            className="inline-flex items-center justify-center px-7 py-3 font-mono text-sm uppercase tracking-wider transition-all duration-200 hover:translate-y-[-2px]"
+            style={{
+              backgroundColor: "var(--c-accent)",
+              color: "var(--c-bg)",
+              borderRadius: 8,
+              letterSpacing: "0.08em",
+            }}
+          >
+            View My Work
+          </a>
+          <a
+            href="/CVs/Sylvester Obiwuru Oputa Fullstack CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-7 py-3 font-mono text-sm uppercase tracking-wider transition-all duration-200 hover:translate-y-[-2px]"
+            style={{
+              backgroundColor: "transparent",
+              color: "var(--c-accent)",
+              border: "1.5px solid var(--c-accent)",
+              borderRadius: 8,
+              letterSpacing: "0.08em",
+            }}
+          >
+            Download CV
+          </a>
+        </motion.div>
+
+        {/* Social links */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3.4, duration: 0.4 }}
+          className="flex gap-8 font-mono text-sm"
+          style={{ color: "var(--c-muted)" }}
+        >
+          <a
+            href="https://github.com/Sylester-Oputa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors duration-150"
+            style={{ color: "inherit" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--c-accent)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}
+          >
+            GitHub
+          </a>
+          <a
+            href="https://linkedin.com/in/sylvester-oputa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors duration-150"
+            style={{ color: "inherit" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--c-accent)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}
+          >
+            LinkedIn
+          </a>
+          <a
+            href="mailto:sylvesteroputa366@gmail.com"
+            className="transition-colors duration-150"
+            style={{ color: "inherit" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--c-accent)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}
+          >
+            Email
+          </a>
+        </motion.div>
       </div>
     </section>
   );

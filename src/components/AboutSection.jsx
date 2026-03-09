@@ -1,182 +1,136 @@
-import {
-  Briefcase,
-  Code,
-  Code2,
-  Database,
-  FileText,
-  Lightbulb,
-  Monitor,
-  Server,
-  User,
-  Workflow,
-} from "lucide-react";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+
+const stats = [
+  { value: "4+", label: "Years Active" },
+  { value: "10+", label: "Projects Built" },
+  { value: "3", label: "Specializations" },
+];
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const childVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
 export const AboutSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.15 });
+
   return (
-    <section id="about" className="py-24 px-4 relative">
-      {" "}
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-12 text-center">
-          <span className="text-primary">About</span>{" "}
-          <span className="text-foreground">| Me</span>
-        </h2>
+    <section id="about" className="py-[120px] relative">
+      <motion.div
+        ref={ref}
+        variants={sectionVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className="container mx-auto max-w-[1280px] px-6"
+      >
+        {/* Divider */}
+        <motion.div
+          variants={childVariants}
+          className="w-full border-t border-dashed mb-16"
+          style={{ borderColor: "var(--c-border)" }}
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h3 className="text-2xl font-semibold">Passionate Web Developer</h3>
+        {/* Section number */}
+        <motion.p
+          variants={childVariants}
+          className="font-mono text-sm tracking-widest mb-12"
+          style={{ color: "var(--c-muted)" }}
+        >
+          02 <span className="ml-1">/ ABOUT</span>
+        </motion.p>
 
-            <p className="text-foreground/80">
-              With over 4 years of proven experience in frontend development and
-              hands-on expertise in backend engineering, I specialize in
-              building responsive, accessible, and performance-driven web
-              applications. Leveraging technologies such as React, Next.js,
-              Node.js, Express, and PostgreSQL, I create solutions that are not
-              only visually appealing but also secure, scalable, and reliable
-              for real-world use cases.
-            </p>
+        {/* Two column layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+          {/* Left — Pull quote */}
+          <motion.blockquote
+            variants={childVariants}
+            className="italic leading-snug"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "2.2rem",
+              color: "var(--c-accent)",
+            }}
+          >
+            "I build systems that scale and interfaces that feel human."
+          </motion.blockquote>
 
-            <p className="text-foreground/80">
-              I’m passionate about designing and developing scalable digital
-              products that seamlessly blend clean, user-focused design with
-              robust backend functionality. Having worked with a wide range of
-              modern technologies—from React and Tailwind for front-end
-              experiences to Node.js, Prisma, and PostgreSQL for backend
-              systems—I thrive on turning complex challenges into intuitive,
-              functional solutions. Constantly learning and adapting, I aim to
-              stay ahead of industry trends and bring innovation to every
-              project I contribute to.
-            </p>
+          {/* Right — Bio + Stats */}
+          <div>
+            <motion.p
+              variants={childVariants}
+              className="leading-relaxed mb-10"
+              style={{
+                fontFamily: "'Source Serif 4', serif",
+                color: "var(--c-text)",
+              }}
+            >
+              Full Stack Developer based in Lagos, Nigeria. Specialized in
+              multi-tenant SaaS platforms, workflow engines, booking systems,
+              and production-grade REST APIs — paired with clean, accessible
+              frontends in React and Next.js. I care as much about the
+              architecture as I do about the experience.
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-6 justify-center">
-              <a href="#contact" className="cosmic-button">
-                {" "}
-                Get In Touch
-              </a>
-
-              <a
-                href="../../public/CVs/Oputa Sylvester Obiwuru Fullstack CV.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cosmic-button"
-              >
-                Download CV
-              </a>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6">
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Monitor className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    Frontend Developer / UI Engineer
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Creating responsive, accessible, and visually stunning user interfaces.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Server className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    {" "}
-                    Backend Engineer / API Developer
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Building secure and scalable APIs that power modern
-                    applications.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Database className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Database Developer</h4>
-                  <p className="text-muted-foreground">
-                    Designing and optimizing databases for performance and
-                    reliability.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Workflow className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    Junior DevOps Engineer
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Streamlining development with CI/CD pipelines and
-                    containerization.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <FileText className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    {" "}
-                    Technical Writer / Documentation Engineer
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Creating clear and accessible technical documentation for
-                    developers.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Code2 className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    Full-Stack Software Engineer
-                  </h4>
-                  <p className="text-muted-foreground">
-                    Delivering end-to-end solutions across frontend and backend
-                    systems.
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* <div className="gradient-border p-6 card-hover">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Lightbulb className="h-6 w-6 text-primary" />
-                </div>
-
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Solutions Engineer / Startup Tech Lead</h4>
-                  <p className="text-foreground/80">
-                    Turning ideas into functional products with speed and precision.
-                  </p>
-                </div>
-              </div>
-            </div> */}
+            {/* Stat cards */}
+            <motion.div
+              variants={childVariants}
+              className="grid grid-cols-3 gap-4"
+            >
+              {stats.map((stat) => (
+                <motion.div
+                  key={stat.label}
+                  variants={childVariants}
+                  className="flex flex-col items-center justify-center text-center rounded-[16px] border border-dashed px-3 py-6"
+                  style={{
+                    borderColor: "var(--c-border)",
+                    backgroundColor: "var(--c-surface)",
+                    boxShadow:
+                      `0 4px 24px rgba(var(--c-accent-rgb),0.06), inset 0 1px 0 var(--c-inset)`,
+                  }}
+                >
+                  <span
+                    className="font-display leading-none"
+                    style={{
+                      fontSize: "2.5rem",
+                      color: "var(--c-accent)",
+                    }}
+                  >
+                    {stat.value}
+                  </span>
+                  <span
+                    className="font-mono mt-2"
+                    style={{
+                      fontSize: "0.75rem",
+                      color: "var(--c-muted)",
+                    }}
+                  >
+                    {stat.label}
+                  </span>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

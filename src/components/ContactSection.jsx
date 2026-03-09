@@ -1,185 +1,240 @@
-import { Instagram, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
-import { FaWhatsapp } from "react-icons/fa";
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const childVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1],
+      delay: i * 0.08,
+    },
+  }),
+};
 
 export const ContactSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.15 });
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
+
+    // EmailJS or mailto fallback
+    const formData = new FormData(e.target);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\n${message}`
+    );
+    window.location.href = `mailto:sylvesteroputa366@gmail.com?subject=${subject}&body=${body}`;
 
     setTimeout(() => {
       toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        title: "Message prepared!",
+        description: "Your email client should open shortly.",
       });
       setIsSubmitting(false);
-    }, 1500);
+      e.target.reset();
+    }, 1000);
   };
+
+  const inputStyle = {
+    backgroundColor: "var(--c-surface)",
+    border: "1.5px solid var(--c-border)",
+    borderRadius: 8,
+    color: "var(--c-text)",
+    fontFamily: "'Source Serif 4', serif",
+    fontSize: "0.95rem",
+  };
+
   return (
-    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Get In <span className="text-primary"> Touch</span>
-        </h2>
-
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Have a project in mind or want to collaborate? Feel free to reach out.
-          I'm always open to discussing new opportunities.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6">
-              {" "}
-              Contact Information
-            </h3>
-
-            <div className="space-y-6 justify-center">
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />{" "}
-                </div>
-                <div>
-                  <h4 className="font-medium"> Email</h4>
-                  <a
-                    href="mailto:sylvesteroputa366@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    sylvesteroputa366@gmail.com
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />{" "}
-                </div>
-                <div>
-                  <h4 className="font-medium"> Phone</h4>
-                  <a
-                    href="tel:+2349034901283"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    +234 (903) 490-1283
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="h-6 w-6 text-primary" />{" "}
-                </div>
-                <div>
-                  <h4 className="font-medium"> Location</h4>
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Lagos, Lagos State, Nigeria.
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-8">
-              <h4 className="font-medium mb-4"> Connect With Me</h4>
-              <div className="flex space-x-4 justify-center">
-                <a href="/linkedin.com/in/sylvester-oputa" target="_blank">
-                  <Linkedin />
-                </a>
-                {/* <a href="#" target="_blank">
-                  <Twitter />
-                </a> */}
-                <a
-                  href="https://www.instagram.com/o_sae.luka/#"
-                  target="_blank"
-                >
-                  <Instagram />
-                </a>
-                <a href="https://wa.me/2349034901283" target="_blank">
-                  <FaWhatsapp size={25} />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
+    <section
+      id="contact"
+      className="py-[120px] relative"
+      style={{ backgroundColor: "var(--c-contact-bg)" }}
+    >
+      <motion.div
+        ref={ref}
+        variants={sectionVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className="container"
+      >
+        {/* Section header */}
+        <div className="mb-16 text-center">
+          <span
+            className="font-mono block mb-3"
+            style={{ color: "var(--c-muted)", fontSize: "0.85rem" }}
           >
-            <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
-
-            <form className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="Sylvester Oputa..."
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="sylvesteroputa366@gmail.com"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary resize-none"
-                  placeholder="Hello, I'd like to talk about..."
-                />
-              </div>
-
-              <a href="mailto:sylvesteroputa366@gmail.com">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={cn(
-                    "cosmic-button w-full flex items-center justify-center gap-2"
-                  )}
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                  <Send size={16} />
-                </button>
-              </a>
-            </form>
-          </div>
+            07 / CONTACT
+          </span>
+          <h2
+            className="font-display italic font-bold mb-4"
+            style={{ color: "var(--c-text)", fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
+          >
+            Let's Build Something.
+          </h2>
+          <p
+            className="font-body italic max-w-lg mx-auto"
+            style={{ color: "var(--c-muted)", fontSize: "1.1rem" }}
+          >
+            Open to remote, contract, and on-site opportunities globally.
+          </p>
         </div>
-      </div>
+
+        <div className="max-w-2xl mx-auto">
+          {/* Contact form */}
+          <motion.form
+            custom={0}
+            variants={childVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            onSubmit={handleSubmit}
+            className="space-y-6 mb-12"
+          >
+            <div>
+              <label
+                htmlFor="name"
+                className="font-mono block mb-2"
+                style={{ color: "var(--c-muted)", fontSize: "0.75rem", letterSpacing: "0.08em" }}
+              >
+                NAME
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                className="w-full px-4 py-3 focus:outline-none focus:ring-2"
+                style={inputStyle}
+                placeholder="Your name"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="email"
+                className="font-mono block mb-2"
+                style={{ color: "var(--c-muted)", fontSize: "0.75rem", letterSpacing: "0.08em" }}
+              >
+                EMAIL
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                className="w-full px-4 py-3 focus:outline-none focus:ring-2"
+                style={inputStyle}
+                placeholder="your@email.com"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="message"
+                className="font-mono block mb-2"
+                style={{ color: "var(--c-muted)", fontSize: "0.75rem", letterSpacing: "0.08em" }}
+              >
+                MESSAGE
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={4}
+                className="w-full px-4 py-3 resize-none focus:outline-none focus:ring-2"
+                style={inputStyle}
+                placeholder="Hello, I'd like to discuss..."
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full font-mono uppercase tracking-wider py-3 transition-all duration-200 hover:translate-y-[-2px] disabled:opacity-60"
+              style={{
+                backgroundColor: "var(--c-accent)",
+                color: "var(--c-bg)",
+                borderRadius: 8,
+                fontSize: "0.85rem",
+                letterSpacing: "0.08em",
+              }}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </button>
+          </motion.form>
+
+          {/* Contact info */}
+          <motion.div
+            custom={1}
+            variants={childVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="flex flex-col items-center gap-3 font-mono"
+            style={{ color: "var(--c-muted)", fontSize: "0.8rem" }}
+          >
+            <a
+              href="mailto:sylvesteroputa366@gmail.com"
+              className="transition-colors duration-150"
+              style={{ color: "inherit" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--c-accent)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}
+            >
+              sylvesteroputa366@gmail.com
+            </a>
+            <a
+              href="https://github.com/Sylester-Oputa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors duration-150"
+              style={{ color: "inherit" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--c-accent)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}
+            >
+              github.com/Sylester-Oputa
+            </a>
+            <a
+              href="https://linkedin.com/in/sylvester-oputa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors duration-150"
+              style={{ color: "inherit" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--c-accent)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}
+            >
+              linkedin.com/in/sylvester-oputa
+            </a>
+            <a
+              href="tel:+2349034901283"
+              className="transition-colors duration-150"
+              style={{ color: "inherit" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--c-accent)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}
+            >
+              +234-903-490-1283
+            </a>
+          </motion.div>
+        </div>
+      </motion.div>
     </section>
   );
 };

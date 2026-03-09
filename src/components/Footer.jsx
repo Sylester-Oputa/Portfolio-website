@@ -1,19 +1,16 @@
-import { ArrowUp } from "lucide-react";
-
 export const Footer = () => {
   return (
-    <footer className="py-12 px-4 bg-card relative border-t border-border mt-12 pt-8 flex flex-wrap justify-between items-center">
-      {" "}
-      <p className="text-sm text-muted-foreground">
-        {" "}
-        &copy; {new Date().getFullYear()} Luka Tech All rights reserved.
-      </p>
-      <a
-        href="#hero"
-        className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
+    <footer
+      className="py-10 text-center"
+      style={{ borderTop: "1px dashed var(--c-border)" }}
+    >
+      <p
+        className="font-body italic"
+        style={{ color: "var(--c-muted)", fontSize: "0.9rem" }}
       >
-        <ArrowUp size={20} />
-      </a>
+        Sylvester Obiwuru Oputa &middot; Full Stack Developer &middot; &copy;{" "}
+        {new Date().getFullYear()}
+      </p>
     </footer>
   );
 };
