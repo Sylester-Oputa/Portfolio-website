@@ -23,25 +23,6 @@ const experiences = [
     ],
   },
   {
-    company: "Hotfy",
-    role: "Frontend Developer (Contract)",
-    location: "Remote",
-    period: "Mar 2025 – Jun 2025",
-    bullets: [
-      "Mobile-first React.js + Tailwind + Framer Motion UI",
-      "Live data rendering via Axios + REST APIs",
-    ],
-  },
-  {
-    company: "PaxBlockchain",
-    role: "Frontend Developer (Contract)",
-    location: "Remote",
-    period: "2025 (Ongoing)",
-    bullets: [
-      "Next.js + Tailwind production UI for blockchain services",
-    ],
-  },
-  {
     company: "Sabol Technology",
     role: "Full Stack Developer (Contract)",
     location: "Remote",
@@ -50,6 +31,49 @@ const experiences = [
       "RBAC system (Admin, Property Owner, Customer)",
       "Real-time availability APIs + payment verification",
       "Audit trail + Swagger/OpenAPI documentation",
+    ],
+  },
+  {
+    company: "MAR ABU Projects Services",
+    role: "Full Stack Developer (Contract)",
+    location: "Remote",
+    period: "Oct 2025 – Jan 2026",
+    bullets: [
+      "JIRA-like project management system with Agile/Waterfall/Kanban support",
+      "Booking platform with NextAuth.js, Prisma, and PostgreSQL",
+      "Role-based dashboards, sprint management, and audit logging",
+    ],
+  },
+  {
+    company: "Novnuga",
+    role: "Backend Developer (Contract)",
+    location: "Remote",
+    period: "Nov 2025 – Jan 2026",
+    bullets: [
+      "Production-ready e-commerce API with 113+ endpoints",
+      "2FA, login tracking, device management, and GDPR compliance",
+      "Paystack payments, Cloudinary uploads, analytics dashboard",
+    ],
+  },
+  {
+    company: "OA Softwares",
+    role: "Backend Developer (Contract)",
+    location: "Remote",
+    period: "Dec 2025 – Feb 2026",
+    bullets: [
+      "Milestone-based project delivery API with TypeScript and Prisma",
+      "CI/CD pipeline with GitHub Actions, Winston logging, Jest testing",
+    ],
+  },
+  {
+    company: "JoinTearn",
+    role: "Backend Developer (Contract)",
+    location: "Remote",
+    period: "Jan 2026 – Mar 2026",
+    bullets: [
+      "Admin dashboard API for gamified content platform",
+      "Role-based access (Admin, Moderator, Creator, User), Swagger docs",
+      "Content moderation workflows, reward points system, Redis caching",
     ],
   },
   // ADD NEW EXPERIENCE HERE

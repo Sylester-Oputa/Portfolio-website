@@ -4,17 +4,17 @@ import { ExternalLink } from "lucide-react";
 
 const featuredProjects = [
   {
-    title: "MAR ABU — Project Management System",
-    tags: ["Node.js", "TypeScript", "PostgreSQL", "Prisma", "Express"],
+    title: "Stayza Pro — Multi-Tenant Realtor Booking SaaS",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Paystack", "Mapbox"],
     description:
-      "State-machine workflow engine, RBAC, sprint planning, audit logging.",
-    github: "https://github.com/MAR-ABU-PROJECTS/TaskManagement-Workflow",
+      "White-label booking infrastructure for Nigerian realtors. 50/50 escrow payouts, 3-lane dispute model, WhatsApp-first notifications, instant withdrawals, and branded subdomain storefronts.",
+    github: null,
   },
   {
-    title: "Multi-Tenant Realtor Booking SaaS",
-    tags: ["TypeScript", "Node.js", "PostgreSQL", "Prisma"],
+    title: "Receipta — Contract-to-Payment Platform",
+    tags: ["Next.js", "TypeScript", "Express", "Prisma", "Paystack", "OpenAI"],
     description:
-      "Isolated multi-tenant architecture, booking flows, admin approvals.",
+      "Multi-tenant SaaS managing proposal → contract → invoice → payment lifecycle. AI-assisted proposals, e-signatures, escrow milestone deposits, and full audit trail.",
     github: null,
   },
   // ADD NEW FEATURED PROJECT HERE
@@ -22,42 +22,60 @@ const featuredProjects = [
 
 const standardProjects = [
   {
-    title: "Vortex Island",
-    description: "Interactive web experience built with modern frontend tools.",
-    tags: ["React", "Tailwind CSS", "Framer Motion"],
+    title: "MAR ABU — Project Management System",
+    description:
+      "Enterprise-grade JIRA-like PM system with Agile/Waterfall/Kanban, sprint management, RBAC, and real-time Kanban boards.",
+    tags: ["React", "TypeScript", "Express", "Prisma", "PostgreSQL", "Redis"],
+    demoUrl: null,
+    github: "https://github.com/MAR-ABU-PROJECTS/TaskManagement-Workflow",
+  },
+  {
+    title: "Vortex — Event Ticketing Platform",
+    description:
+      "SaaS ticketing platform with guest checkout, quota-based subscriptions, FIFO stock management, and Paystack payment integration.",
+    tags: ["TypeScript", "Express", "Prisma", "PostgreSQL", "Paystack"],
+    demoUrl: null,
+    github: "https://github.com/Beenflexxin01/vortex-backend.git",
+  },
+  {
+    title: "Novnuga — E-Commerce Backend",
+    description:
+      "113+ endpoint e-commerce API with 2FA, traffic analytics, Cloudinary uploads, Paystack payments, and GDPR data export.",
+    tags: ["TypeScript", "Express", "Prisma", "PostgreSQL", "Paystack"],
     demoUrl: null,
     github: null,
   },
   {
-    title: "Finance Tracker",
+    title: "Phone Accessory Store — POS System",
     description:
-      "Full-stack app for tracking income and expenses with visual charts.",
-    tags: ["React", "Node.js", "Express", "MongoDB"],
-    demoUrl: "https://finance-tracker-blue-nine.vercel.app",
-    github: "https://github.com/Sylester-Oputa/finance-tracker.git",
+      "Offline-first desktop inventory & POS with FIFO stock allocation, receipt printing, profit tracking, and database backup/restore.",
+    tags: ["Electron", "React", "TypeScript", "Express", "PostgreSQL", "Prisma"],
+    demoUrl: null,
+    github: null,
   },
   {
-    title: "MAR ABU Booking",
+    title: "JoinTearn Admin Dashboard",
     description:
-      "Modern booking platform with TypeScript and PostgreSQL backend.",
-    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
+      "Backend API for a gamified content platform with RBAC, content moderation, reward points, challenges, and Swagger docs.",
+    tags: ["TypeScript", "Express", "Prisma", "PostgreSQL", "Redis"],
+    demoUrl: null,
+    github: "https://github.com/Jointearn/admin-portal-backend.git",
+  },
+  {
+    title: "OA Softwares Backend",
+    description:
+      "Milestone-based web development platform API with consultation management, CI/CD, and structured logging.",
+    tags: ["TypeScript", "Express", "Prisma", "PostgreSQL", "Jest"],
+    demoUrl: null,
+    github: "https://github.com/Beenflexxin01/OA-Backend",
+  },
+  {
+    title: "MAR ABU Booking Platform",
+    description:
+      "Full-stack booking platform with NextAuth.js authentication, Prisma ORM, and PostgreSQL backend.",
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Express"],
     demoUrl: "https://booking.marabuprojects.com/",
     github: "https://github.com/MAR-ABU-PROJECTS/Booking-System.git",
-  },
-  {
-    title: "Hotfy",
-    description: "Mobile-first web app with live data rendering and smooth UI.",
-    tags: ["React", "Tailwind CSS", "Framer Motion", "REST API"],
-    demoUrl: null,
-    github: null,
-  },
-  {
-    title: "BTube",
-    description:
-      "YouTube clone with video search, previews, and playback.",
-    tags: ["React", "TypeScript", "YouTube API"],
-    demoUrl: "https://b-tube.vercel.app/",
-    github: "https://github.com/Sylester-Oputa/BTube.git",
   },
   {
     title: "Upwey Real Estate",
@@ -66,6 +84,14 @@ const standardProjects = [
     tags: ["React", "Redux Toolkit", "Tailwind CSS"],
     demoUrl: "https://upwey.com.ng/",
     github: "https://github.com/JimOluwaseyi/upwey-frontend.git",
+  },
+  {
+    title: "Finance Tracker",
+    description:
+      "Full-stack app for tracking income and expenses with visual charts.",
+    tags: ["React", "Node.js", "Express", "MongoDB"],
+    demoUrl: "https://finance-tracker-blue-nine.vercel.app",
+    github: "https://github.com/Sylester-Oputa/finance-tracker.git",
   },
   // ADD NEW PROJECT HERE
 ];
