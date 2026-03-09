@@ -34,7 +34,7 @@ const standardProjects = [
     description:
       "SaaS ticketing platform with guest checkout, quota-based subscriptions, FIFO stock management, and Paystack payment integration.",
     tags: ["TypeScript", "Express", "Prisma", "PostgreSQL", "Paystack"],
-    demoUrl: null,
+    demoUrl: "https://www.vortex-island.com/",
     github: "https://github.com/Beenflexxin01/vortex-backend.git",
   },
   {
@@ -42,8 +42,8 @@ const standardProjects = [
     description:
       "113+ endpoint e-commerce API with 2FA, traffic analytics, Cloudinary uploads, Paystack payments, and GDPR data export.",
     tags: ["TypeScript", "Express", "Prisma", "PostgreSQL", "Paystack"],
-    demoUrl: null,
-    github: null,
+    demoUrl: "https://novnuga.com/",
+    github: "https://github.com/Beenflexxin01/Novnuga-Backend.git",
   },
   {
     title: "Phone Accessory Store — POS System",
@@ -66,7 +66,7 @@ const standardProjects = [
     description:
       "Milestone-based web development platform API with consultation management, CI/CD, and structured logging.",
     tags: ["TypeScript", "Express", "Prisma", "PostgreSQL", "Jest"],
-    demoUrl: null,
+    demoUrl: "https://oa-softwares.com/",
     github: "https://github.com/Beenflexxin01/OA-Backend",
   },
   {

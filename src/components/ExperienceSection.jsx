@@ -16,28 +16,17 @@ const experiences = [
     company: "Upwey Real Estate",
     role: "Junior Web Developer",
     location: "Remote",
-    period: "Dec 2024 – Feb 2025",
+    period: "Jan 2025 – Mar 2025",
     bullets: [
       "React listing platform, Redux Toolkit, REST API integration",
       "Agile sprints, mobile/desktop responsiveness",
     ],
   },
   {
-    company: "Sabol Technology",
-    role: "Full Stack Developer (Contract)",
-    location: "Remote",
-    period: "Jul 2025 – Oct 2025",
-    bullets: [
-      "RBAC system (Admin, Property Owner, Customer)",
-      "Real-time availability APIs + payment verification",
-      "Audit trail + Swagger/OpenAPI documentation",
-    ],
-  },
-  {
     company: "MAR ABU Projects Services",
     role: "Full Stack Developer (Contract)",
     location: "Remote",
-    period: "Oct 2025 – Jan 2026",
+    period: "Jul 2025 – Oct 2025",
     bullets: [
       "JIRA-like project management system with Agile/Waterfall/Kanban support",
       "Booking platform with NextAuth.js, Prisma, and PostgreSQL",
@@ -48,7 +37,7 @@ const experiences = [
     company: "Novnuga",
     role: "Backend Developer (Contract)",
     location: "Remote",
-    period: "Nov 2025 – Jan 2026",
+    period: "Jan 2026 – Feb 2026",
     bullets: [
       "Production-ready e-commerce API with 113+ endpoints",
       "2FA, login tracking, device management, and GDPR compliance",
@@ -59,7 +48,7 @@ const experiences = [
     company: "OA Softwares",
     role: "Backend Developer (Contract)",
     location: "Remote",
-    period: "Dec 2025 – Feb 2026",
+    period: "Jan 2026 – Mar 2026",
     bullets: [
       "Milestone-based project delivery API with TypeScript and Prisma",
       "CI/CD pipeline with GitHub Actions, Winston logging, Jest testing",
@@ -69,7 +58,7 @@ const experiences = [
     company: "JoinTearn",
     role: "Backend Developer (Contract)",
     location: "Remote",
-    period: "Jan 2026 – Mar 2026",
+    period: "Feb 2026 – Ongoing",
     bullets: [
       "Admin dashboard API for gamified content platform",
       "Role-based access (Admin, Moderator, Creator, User), Swagger docs",
