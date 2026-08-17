@@ -1,6 +1,14 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
+
+const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
+const EMAIL = "sylvesteroputa366@gmail.com";
+
+const intents = [
+  { id: "hire", label: "Hiring for a role" },
+  { id: "build", label: "Need something built" },
+];
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -29,31 +37,96 @@ export const ContactSection = () => {
   const isInView = useInView(ref, { once: true, amount: 0.15 });
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [intent, setIntent] = useState("hire");
 
-  const handleSubmit = (e) => {
+  // Hero CTAs preset the intent so the message arrives already labelled
+  useEffect(() => {
+    const onIntent = (e) => setIntent(e.detail === "build" ? "build" : "hire");
+    window.addEventListener("set-contact-intent", onIntent);
+    return () => window.removeEventListener("set-contact-intent", onIntent);
+  }, []);
+
+  /* Opens the user's mail client with the message pre-filled. Only used when
+     no form backend is configured, or when the network request fails — and we
+     tell the user that's what happened rather than claiming it was sent. */
+  const openMailFallback = ({ name, email, message, intentLabel }) => {
+    const subject = encodeURIComponent(`Portfolio enquiry — ${intentLabel}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nIntent: ${intentLabel}\n\n${message}`
+    );
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.target;
     setIsSubmitting(true);
 
-    // EmailJS or mailto fallback
-    const formData = new FormData(e.target);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
+    const data = new FormData(form);
+    const payload = {
+      name: data.get("name"),
+      email: data.get("email"),
+      message: data.get("message"),
+      intentLabel:
+        intents.find((i) => i.id === intent)?.label ?? "General enquiry",
+    };
 
-    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\n${message}`
-    );
-    window.location.href = `mailto:sylvesteroputa366@gmail.com?subject=${subject}&body=${body}`;
+    // Honeypot — bots fill hidden fields, humans don't
+    if (data.get("botcheck")) {
+      setIsSubmitting(false);
+      return;
+    }
 
-    setTimeout(() => {
+    if (!ACCESS_KEY) {
+      openMailFallback(payload);
       toast({
-        title: "Message prepared!",
-        description: "Your email client should open shortly.",
+        title: "Opening your email app",
+        description:
+          "Direct sending isn't configured yet — your message is pre-filled, just hit send.",
       });
       setIsSubmitting(false);
-      e.target.reset();
-    }, 1000);
+      return;
+    }
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: `Portfolio enquiry — ${payload.intentLabel}`,
+          from_name: "sylvester-oputa.site",
+          name: payload.name,
+          email: payload.email,
+          intent: payload.intentLabel,
+          message: payload.message,
+        }),
+      });
+
+      const result = await res.json();
+      if (!res.ok || !result.success) {
+        throw new Error(result.message || "Submission failed");
+      }
+
+      toast({
+        title: "Message sent",
+        description: "Thanks — I'll get back to you within two business days.",
+      });
+      form.reset();
+    } catch (err) {
+      openMailFallback(payload);
+      toast({
+        title: "Couldn't send directly",
+        description:
+          "Opening your email app instead with the message pre-filled.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputStyle = {
@@ -61,7 +134,7 @@ export const ContactSection = () => {
     border: "1.5px solid var(--c-border)",
     borderRadius: 8,
     color: "var(--c-text)",
-    fontFamily: "'Source Serif 4', serif",
+    fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif",
     fontSize: "0.95rem",
   };
 
@@ -110,6 +183,65 @@ export const ContactSection = () => {
             onSubmit={handleSubmit}
             className="space-y-6 mb-12"
           >
+            {/* Honeypot — visually hidden, bots fill it */}
+            <input
+              type="checkbox"
+              name="botcheck"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                width: 1,
+                height: 1,
+                opacity: 0,
+                pointerEvents: "none",
+              }}
+            />
+
+            {/* Intent — preset by the hero CTAs */}
+            <fieldset>
+              <legend
+                className="font-mono block mb-3"
+                style={{
+                  color: "var(--c-muted)",
+                  fontSize: "0.75rem",
+                  letterSpacing: "0.08em",
+                }}
+              >
+                I'M REACHING OUT BECAUSE
+              </legend>
+              <div className="flex flex-wrap gap-3">
+                {intents.map((opt) => {
+                  const active = intent === opt.id;
+                  return (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      onClick={() => setIntent(opt.id)}
+                      aria-pressed={active}
+                      className="font-mono px-4 py-2 transition-all duration-150"
+                      style={{
+                        fontSize: "0.78rem",
+                        borderRadius: 999,
+                        border: `1.5px solid ${
+                          active ? "var(--c-accent)" : "var(--c-border)"
+                        }`,
+                        backgroundColor: active
+                          ? `rgba(var(--c-accent-rgb),0.1)`
+                          : "transparent",
+                        color: active
+                          ? "var(--c-accent)"
+                          : "var(--c-muted-strong)",
+                      }}
+                    >
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </fieldset>
+
             <div>
               <label
                 htmlFor="name"
@@ -181,6 +313,13 @@ export const ContactSection = () => {
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </button>
+
+            <p
+              className="font-mono text-center"
+              style={{ color: "var(--c-muted)", fontSize: "0.72rem" }}
+            >
+              I reply to every genuine enquiry within two business days.
+            </p>
           </motion.form>
 
           {/* Contact info */}

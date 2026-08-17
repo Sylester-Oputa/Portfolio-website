@@ -65,6 +65,28 @@ const experiences = [
       "Content moderation workflows, reward points system, Redis caching",
     ],
   },
+  {
+    company: "Emblue Africa",
+    role: "Full-Stack Engineer (Contract)",
+    location: "Remote",
+    period: "May 2026 – Ongoing",
+    bullets: [
+      "Delivered the Reply Engine, Dashboard, Approval Queue and “Engage the Engagers”",
+      "Supabase Auth with Prisma-backed RBAC and object-level permission enforcement",
+      "Campaign lifecycle engine, Playwright E2E coverage, schema-contract checks in CI",
+    ],
+  },
+  {
+    company: "Creative Natives",
+    role: "Full-Stack / Product Engineer",
+    location: "Remote",
+    period: "Jul 2026 – Ongoing",
+    bullets: [
+      "T.I.N. (This Is Naija) — cultural, social and accountability platform across web, API and mobile",
+      "Next.js 16 / React 19 web app, Node 24 + Prisma API, Expo mobile client with EAS builds",
+      "Fact-checking pipeline, reputation systems, moderation workflows and realtime feeds over Socket.IO",
+    ],
+  },
   // ADD NEW EXPERIENCE HERE
 ];
 
@@ -217,7 +239,7 @@ export const ExperienceSection = () => {
                     </div>
                     <div
                       className="font-mono text-right"
-                      style={{ color: "var(--c-muted)", fontSize: "0.8rem" }}
+                      style={{ color: "var(--c-muted-strong)", fontSize: "0.8rem" }}
                     >
                       <div>{exp.location}</div>
                       <div>{exp.period}</div>

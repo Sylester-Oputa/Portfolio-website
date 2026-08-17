@@ -6,9 +6,9 @@ export const Footer = () => {
     >
       <p
         className="font-body italic"
-        style={{ color: "var(--c-muted)", fontSize: "0.9rem" }}
+        style={{ color: "var(--c-muted-strong)", fontSize: "0.9rem" }}
       >
-        Sylvester Obiwuru Oputa &middot; Full Stack Developer &middot; &copy;{" "}
+        Sylvester Obiwuru Oputa &middot; Full-Stack Engineer &amp; Product Builder &middot; &copy;{" "}
         {new Date().getFullYear()}
       </p>
     </footer>

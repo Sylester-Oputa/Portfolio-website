@@ -10,7 +10,7 @@ export const NotFound = () => {
       >
         404
       </h1>
-      <p className="font-body mb-8" style={{ color: "var(--c-muted)", fontSize: "1.1rem" }}>
+      <p className="font-body mb-8" style={{ color: "var(--c-muted-strong)", fontSize: "1.1rem" }}>
         This page doesn't exist.
       </p>
       <a

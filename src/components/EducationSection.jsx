@@ -118,7 +118,7 @@ export const EducationSection = () => {
                   </h3>
                   <p
                     className="font-body"
-                    style={{ color: "var(--c-muted)", fontSize: "0.9rem" }}
+                    style={{ color: "var(--c-muted-strong)", fontSize: "0.9rem" }}
                   >
                     {item.institution}
                   </p>

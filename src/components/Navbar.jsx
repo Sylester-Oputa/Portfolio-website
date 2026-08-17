@@ -4,10 +4,10 @@ import { useTheme } from "../context/ThemeContext";
 import { Sun, Moon } from "lucide-react";
 
 const navLinks = [
-  { num: "01", label: "ABOUT", href: "#about" },
-  { num: "02", label: "SKILLS", href: "#skills" },
-  { num: "03", label: "WORK", href: "#projects" },
-  { num: "04", label: "EXPERIENCE", href: "#experience" },
+  { num: "01", label: "WORK", href: "#projects" },
+  { num: "02", label: "ABOUT", href: "#about" },
+  { num: "03", label: "EXPERIENCE", href: "#experience" },
+  { num: "04", label: "SKILLS", href: "#skills" },
   { num: "05", label: "CONTACT", href: "#contact" },
 ];
 
@@ -69,7 +69,7 @@ export const Navbar = () => {
       <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 2 }}
+        transition={{ duration: 0.4 }}
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-200"
         style={{
           backgroundColor: isScrolled ? "var(--c-surface)" : "transparent",

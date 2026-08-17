@@ -84,7 +84,7 @@ export const SkillsSection = () => {
             className="font-mono block mb-3"
             style={{ color: "var(--c-muted)", fontSize: "0.85rem" }}
           >
-            03 / SKILLS
+            05 / SKILLS
           </span>
           <h2
             className="font-heading font-bold mb-3"

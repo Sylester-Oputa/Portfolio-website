@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { value: "4+", label: "Years Active" },
-  { value: "10+", label: "Projects Built" },
+  { value: "5+", label: "Years Building" },
+  { value: "15+", label: "Projects Built" },
   { value: "3", label: "Specializations" },
 ];
 
@@ -55,7 +55,7 @@ export const AboutSection = () => {
           className="font-mono text-sm tracking-widest mb-12"
           style={{ color: "var(--c-muted)" }}
         >
-          02 <span className="ml-1">/ ABOUT</span>
+          03 <span className="ml-1">/ ABOUT</span>
         </motion.p>
 
         {/* Two column layout */}
@@ -70,7 +70,7 @@ export const AboutSection = () => {
               color: "var(--c-accent)",
             }}
           >
-            "I build systems that scale and interfaces that feel human."
+            "I turn business problems into systems that ship."
           </motion.blockquote>
 
           {/* Right — Bio + Stats */}
@@ -79,15 +79,18 @@ export const AboutSection = () => {
               variants={childVariants}
               className="leading-relaxed mb-10"
               style={{
-                fontFamily: "'Source Serif 4', serif",
+                fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif",
                 color: "var(--c-text)",
               }}
             >
-              Full Stack Developer based in Lagos, Nigeria. Specialized in
-              multi-tenant SaaS platforms, workflow engines, booking systems,
-              and production-grade REST APIs — paired with clean, accessible
-              frontends in React and Next.js. I care as much about the
-              architecture as I do about the experience.
+              Full-Stack Engineer with 5+ years building production software
+              and translating business problems into technical products. Based
+              in Lagos, Nigeria. I work across product ideation, system
+              architecture, workflow design and monetization models — taking
+              software concepts from early definition through implementation.
+              Multi-tenant SaaS, payment and escrow flows, workflow engines and
+              production REST APIs, paired with clean, accessible frontends in
+              React and Next.js.
             </motion.p>
 
             {/* Stat cards */}
