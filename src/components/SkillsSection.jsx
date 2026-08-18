@@ -26,6 +26,7 @@ const skillCategories = [
     skills: [
       "PostgreSQL", "Prisma ORM", "Redis", "SQLite",
       "Schema Design", "Migrations", "Audit Logging", "FIFO Stock Allocation",
+      "GDPR Data Export",
     ],
   },
   {
@@ -40,13 +41,14 @@ const skillCategories = [
     skills: [
       "GitHub Actions CI/CD", "Vercel", "EAS Builds",
       "Winston Logging", "Jest", "Playwright", "Git",
-      "Docker", "Postman",
+      "Docker", "Postman", "Schema-Contract Checks in CI",
     ],
   },
   {
     label: "PRODUCT",
     skills: [
       "PRD Authoring", "System Architecture", "Workflow Design",
+      "Workflow Orchestration",
       "Multi-Tenancy", "Monetization Models", "Agile Delivery",
     ],
   },
