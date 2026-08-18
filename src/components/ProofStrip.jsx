@@ -8,7 +8,6 @@ const companies = [
   "OA Softwares",
   "Novnuga",
   "MAR ABU Projects",
-  "Tekari Studios",
   "Upwey",
   "Proxynet",
 ];

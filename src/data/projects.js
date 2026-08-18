@@ -284,19 +284,6 @@ export const projects = [
     github: "https://github.com/MAR-ABU-PROJECTS/Booking-System.git",
   },
   {
-    slug: "tekari-employment",
-    title: "Custom Employment Platform",
-    role: "Full-Stack Developer (Contract)",
-    status: "Client Delivery",
-    featured: false,
-    categories: ["Client work", "Full-stack"],
-    tags: ["Full-Stack", "Client Project"],
-    summary:
-      "Commercially contracted custom employment platform delivered for Tekari Studios, scoped and shipped under a formal proposal and contract.",
-    demoUrl: null,
-    github: null,
-  },
-  {
     slug: "novnuga",
     title: "Novnuga — E-Commerce Backend",
     role: "Backend Developer (Contract)",
