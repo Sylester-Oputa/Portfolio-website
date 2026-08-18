@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { value: "5+", label: "Years Building" },
+  { value: "4+", label: "Years Building" },
   { value: "15+", label: "Projects Built" },
   { value: "3", label: "Specializations" },
 ];
@@ -83,7 +83,7 @@ export const AboutSection = () => {
                 color: "var(--c-text)",
               }}
             >
-              Full-Stack Engineer with 5+ years building production software
+              Full-Stack Engineer with 4+ years building production software
               and translating business problems into technical products. Based
               in Lagos, Nigeria. I work across product ideation, system
               architecture, workflow design and monetization models — taking

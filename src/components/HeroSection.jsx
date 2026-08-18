@@ -12,7 +12,7 @@ const roles = [
 ];
 
 const proofPoints = [
-  { value: "5+", label: "Years building" },
+  { value: "4+", label: "Years building" },
   { value: "17", label: "Projects shipped" },
   { value: "3", label: "Products founded" },
 ];
