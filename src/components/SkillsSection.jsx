@@ -3,35 +3,51 @@ import { motion, useInView } from "framer-motion";
 
 const skillCategories = [
   {
+    label: "LANGUAGES",
+    skills: ["TypeScript", "JavaScript", "SQL", "Python"],
+  },
+  {
     label: "FRONTEND",
     skills: [
-      "React.js", "Next.js", "Vue.js", "TypeScript", "JavaScript",
-      "Tailwind CSS", "Framer Motion", "Redux Toolkit", "HTML5", "CSS3",
+      "React 19", "Next.js 16", "Redux Toolkit", "Tailwind CSS",
+      "Bootstrap", "Expo (React Native)", "Responsive & Accessible UI",
     ],
   },
   {
     label: "BACKEND",
     skills: [
-      "Node.js", "Express.js", "TypeScript", "REST APIs",
-      "JWT", "RBAC", "Webhooks", "Payment Flows", "Escrow Logic",
+      "Node.js", "Express", "REST API Design", "NextAuth.js",
+      "Supabase Auth", "JWT", "2FA", "RBAC & Object-Level Permissions",
+      "Socket.IO", "Swagger/OpenAPI",
     ],
   },
   {
-    label: "DATABASE",
-    skills: ["PostgreSQL", "Prisma ORM", "MongoDB"],
-  },
-  {
-    label: "DEVOPS",
+    label: "DATA",
     skills: [
-      "Git", "GitHub", "CI/CD", "Vercel", "Render", "Docker",
-      "Swagger/OpenAPI", "Postman", "Jest", "Supertest",
+      "PostgreSQL", "Prisma ORM", "Redis", "SQLite",
+      "Schema Design", "Migrations", "Audit Logging", "FIFO Stock Allocation",
     ],
   },
   {
-    label: "PRACTICES",
+    label: "PAYMENTS & INTEGRATIONS",
     skills: [
-      "Multi-tenant SaaS", "State-machine Workflows",
-      "Audit Logging", "RBAC Systems", "Agile/Scrum",
+      "Paystack", "Escrow & Milestone Deposits", "Wallet & Payout Flows",
+      "Cloudinary", "OpenAI", "Mapbox",
+    ],
+  },
+  {
+    label: "DEVOPS & TOOLING",
+    skills: [
+      "GitHub Actions CI/CD", "Vercel", "EAS Builds",
+      "Winston Logging", "Jest", "Playwright", "Git",
+      "Docker", "Postman",
+    ],
+  },
+  {
+    label: "PRODUCT",
+    skills: [
+      "PRD Authoring", "System Architecture", "Workflow Design",
+      "Multi-Tenancy", "Monetization Models", "Agile Delivery",
     ],
   },
   // ADD NEW SKILL CATEGORY HERE

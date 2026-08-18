@@ -9,7 +9,8 @@ const experiences = [
     period: "Sept 2023 – Mar 2024",
     bullets: [
       "Reusable React components, Bootstrap CSS layouts",
-      "UI/UX collaboration and visual consistency",
+      "UI/UX collaboration and visual consistency across the product",
+      "Taught coding to children using mBlock and Scratch, plus introductory web development",
     ],
   },
   {
@@ -58,7 +59,7 @@ const experiences = [
     company: "JoinTearn",
     role: "Backend Developer (Contract)",
     location: "Remote",
-    period: "Feb 2026 – Ongoing",
+    period: "Feb 2026 – Apr 2026",
     bullets: [
       "Admin dashboard API for gamified content platform",
       "Role-based access (Admin, Moderator, Creator, User), Swagger docs",
@@ -69,7 +70,7 @@ const experiences = [
     company: "Emblue Africa",
     role: "Full-Stack Engineer (Contract)",
     location: "Remote",
-    period: "May 2026 – Ongoing",
+    period: "May 2026 – Aug 2026",
     bullets: [
       "Delivered the Reply Engine, Dashboard, Approval Queue and “Engage the Engagers”",
       "Supabase Auth with Prisma-backed RBAC and object-level permission enforcement",

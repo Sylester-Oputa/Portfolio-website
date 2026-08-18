@@ -90,7 +90,9 @@ export const AboutSection = () => {
               software concepts from early definition through implementation.
               Multi-tenant SaaS, payment and escrow flows, workflow engines and
               production REST APIs, paired with clean, accessible frontends in
-              React and Next.js.
+              React and Next.js. Founder of three products, and delivery
+              partner on commercial client platforms across proptech, commerce,
+              ticketing and social intelligence.
             </motion.p>
 
             {/* Stat cards */}
