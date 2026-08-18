@@ -17,6 +17,12 @@ const education = [
     title: "Certificate — Frontend Development (TypeScript/Next.js)",
     institution: "Nerdy Eye, Remote",
   },
+  {
+    period: "2025 – Present",
+    title: "B.Sc. Computer Science (Part-Time)",
+    institution: "Lagos State University, Ojo Campus",
+    current: true,
+  },
   // ADD NEW EDUCATION HERE
 ];
 
@@ -111,10 +117,25 @@ export const EducationSection = () => {
                 </div>
                 <div>
                   <h3
-                    className="font-heading font-bold"
+                    className="font-heading font-bold flex flex-wrap items-center gap-2"
                     style={{ color: "var(--c-text)", fontSize: "1.05rem" }}
                   >
                     {item.title}
+                    {item.current && (
+                      <span
+                        className="font-mono uppercase"
+                        style={{
+                          color: "var(--c-accent)",
+                          fontSize: "0.62rem",
+                          letterSpacing: "0.12em",
+                          backgroundColor: `rgba(var(--c-accent-rgb),0.10)`,
+                          padding: "3px 9px",
+                          borderRadius: 999,
+                        }}
+                      >
+                        In Progress
+                      </span>
+                    )}
                   </h3>
                   <p
                     className="font-body"

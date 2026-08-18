@@ -59,8 +59,6 @@
     --c-overlay: rgba(10, 8, 6, 0.6);
     --c-inset: rgba(255, 255, 255, 0.04);
     --c-selection-bg: rgba(109, 191, 160, 0.2);
-    --c-cursor-primary: #6dbfa0;
-    --c-cursor-secondary: #c4956a;
     --c-scrollbar-track: #1a1714;
     --c-scrollbar-thumb: #3a3530;
     --c-scrollbar-hover: #9a8d80;
@@ -84,23 +82,6 @@
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     transition: background-color 0.4s ease, color 0.4s ease;
-  }
-
-  /* Hide cursor on non-touch devices.
-     Text fields keep the native caret — hiding it makes typing feel broken —
-     and the whole effect is off when reduced motion is requested. */
-  @media (pointer: fine) and (prefers-reduced-motion: no-preference) {
-    body.cursor-ready,
-    body.cursor-ready * {
-      cursor: none !important;
-    }
-
-    body.cursor-ready input,
-    body.cursor-ready textarea,
-    body.cursor-ready select,
-    body.cursor-ready [contenteditable] {
-      cursor: auto !important;
-    }
   }
 
   /* Global motion guard — individual components also gate on this via

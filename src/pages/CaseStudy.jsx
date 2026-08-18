@@ -3,7 +3,6 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { getProject } from "../data/projects";
-import { CustomCursor } from "../components/CustomCursor";
 import { Footer } from "../components/Footer";
 
 const Section = ({ label, title, children, delay = 0 }) => (
@@ -80,7 +79,6 @@ export const CaseStudy = () => {
 
   return (
     <>
-      <CustomCursor />
       <div
         className="min-h-screen"
         style={{ backgroundColor: "var(--c-bg)" }}
