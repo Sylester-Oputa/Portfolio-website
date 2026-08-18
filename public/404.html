@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Page not found — Sylvester Obiwuru Oputa</title>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600&family=Libre+Baskerville:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --c-bg: #1a1714;
+        --c-surface: #242019;
+        --c-border: #3a3530;
+        --c-accent: #6dbfa0;
+        --c-text: #dad0c4;
+        --c-muted: #9a8d80;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        background-color: var(--c-bg);
+        color: var(--c-text);
+        font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      /* Paper grain, matching the site */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.05;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 256px 256px;
+      }
+      .card {
+        position: relative;
+        width: 100%;
+        max-width: 520px;
+        padding: 2.5rem 2rem;
+        background-color: var(--c-surface);
+        border: 1.5px dashed var(--c-border);
+        border-radius: 16px;
+      }
+      .code {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--c-muted);
+        display: block;
+        margin-bottom: 0.75rem;
+      }
+      h1 {
+        font-family: "Libre Baskerville", serif;
+        font-size: 1.75rem;
+        line-height: 1.25;
+        margin-bottom: 0.75rem;
+      }
+      p { color: var(--c-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.75rem; }
+      .links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+      a {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 0.85rem 1.5rem;
+        border-radius: 8px;
+        transition: transform 0.15s ease, background-color 0.15s ease;
+      }
+      a:hover { transform: translateY(-2px); }
+      .primary { background-color: var(--c-accent); color: var(--c-bg); font-weight: 600; }
+      .secondary { color: var(--c-accent); border: 1.5px solid var(--c-accent); }
+      @media (prefers-reduced-motion: reduce) {
+        a { transition: none; }
+        a:hover { transform: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <span class="code">Error 404</span>
+      <h1>This page doesn't exist.</h1>
+      <p>
+        The link may be out of date, or the address mistyped. The work, the
+        experience and the case studies are all still on the home page.
+      </p>
+      <div class="links">
+        <a class="primary" href="/">Back to the site</a>
+        <a class="secondary" href="/#projects">See the work</a>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,4 +1,7 @@
 {
   "installCommand": "rm -rf node_modules package-lock.json && npm install",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/work/:slug", "destination": "/index.html" }
+  ]
 }

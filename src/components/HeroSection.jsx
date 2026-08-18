@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { CVModal } from "./CVModal";
 import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
 import { useMagnetic } from "../hooks/useMagnetic";
 import { GrainField } from "./GrainField";
@@ -51,6 +52,7 @@ const useTypewriter = (words, enabled) => {
 };
 
 export const HeroSection = () => {
+  const [cvOpen, setCvOpen] = useState(false);
   const reduced = usePrefersReducedMotion();
   const typed = useTypewriter(roles, !reduced);
   const sectionRef = useRef(null);
@@ -85,7 +87,8 @@ export const HeroSection = () => {
   };
 
   return (
-    <section
+    <>
+      <section
       ref={sectionRef}
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden"
@@ -220,10 +223,10 @@ export const HeroSection = () => {
           >
             Build with me
           </a>
-          <a
-            href="/CVs/Sylvester Obiwuru Oputa Fullstack CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => setCvOpen(true)}
+            aria-haspopup="dialog"
             className="inline-flex items-center justify-center px-8 py-4 font-mono text-sm uppercase transition-colors duration-200"
             style={{
               color: "var(--c-muted-strong)",
@@ -237,7 +240,7 @@ export const HeroSection = () => {
             }
           >
             Download CV ↓
-          </a>
+          </button>
         </div>
 
         {/* Proof numbers */}
@@ -296,6 +299,9 @@ export const HeroSection = () => {
           </div>
         </motion.div>
       </motion.div>
-    </section>
+      </section>
+
+      <CVModal open={cvOpen} onClose={() => setCvOpen(false)} />
+    </>
   );
 };
